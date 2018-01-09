@@ -1,6 +1,9 @@
 # MAC Stuff?
 *.DS_STORE
 
+# VS Code
+.vscode
+
 # Prerequisites
 *.d
 
