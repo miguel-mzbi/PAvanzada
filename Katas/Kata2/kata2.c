@@ -5,10 +5,6 @@
 #define BUFFSIZE 1024
 #define FILENAME "test.txt"
 
-int fixMin(char *password, int n) {
-    
-}
-
 
 int anagramMap(char *password, int n) {
 
@@ -31,6 +27,7 @@ int anagramMap(char *password, int n) {
         hasMax = 1;
     }
     
+    // Setting up flags
     char prevChar = '\0', prevPrevChar = '\0';
     for(int i = 0; i < n; i++) {
         char currentChar = password[i];
@@ -57,18 +54,22 @@ int anagramMap(char *password, int n) {
         prevChar = currentChar;
     }
 
+    // Fixing basic flags
     if(!hasLower) {
         password[n] = 'a';
+        basicLower = n;
         n++;
         hasLower = 1;
     }
     if(!hasUpper) {
         password[n] = 'A';
+        basicUpper = n;
         n++;
         hasUpper = 1;
     }
     if(!hasNumber) {
         password[n] = '0';
+        basicNumber = n;
         n++;
         hasNumber = 1;
     }  
@@ -76,6 +77,7 @@ int anagramMap(char *password, int n) {
         hasMin = 1;
     }
 
+    // Fixing min length
     while(!hasMin) {
         if(password[n-1] == '\0') {
             password[n] = 'a';
@@ -96,6 +98,7 @@ int anagramMap(char *password, int n) {
     }
     hasMin = 1;
 
+    // Fixing sequences
     for(int i = 0; i < tripleRepeatPosSize; i++) {
         if(password[tripleRepeatPos[i]] != 'a' && password[tripleRepeatPos[i]+1] != 'a') {
             password[tripleRepeatPos[i]] = 'a';
@@ -108,12 +111,16 @@ int anagramMap(char *password, int n) {
         }
     }
 
+    // Fixing long
     for(int i = 0; i < n; i++) {
         if(n <= 20) {
             break;
         }
         else {
-            if((password[i-2] == password[i-1] && password[i-1] == password[i+1]) || (password[i-1] == password[i+1] && password[i+1] == password[i+2])) {
+            if((i == basicLower || i == basicNumber || i== basicUpper) || 
+            ((password[i-2] == password[i-1] && password[i-1] == password[i+1]) || 
+            (password[i-1] == password[i+1] && password[i+1] == password[i+2]))) {
+                printf("%c at %d\n", password[i], i);
                 continue;
             }
             else {
