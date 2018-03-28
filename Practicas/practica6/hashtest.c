@@ -80,7 +80,7 @@ static char * testFull() {
   unsigned size = 10;
   char key[size];
   char value[size];
-  initHash(&myHash, size, hash, cmpKeys, copy, copy);
+  initHash(&myHash, size, hash2, cmpKeys, copy, copy);
   for(int i = 0; i < 2 * size; i++) {
     sprintf(key, "Hello%d", i);
     sprintf(value, "Hola%d", i);
