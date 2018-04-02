@@ -49,8 +49,8 @@ For each test case, output one line containing Case #x: y, where x is the test c
 __INPUT WAS MODIFIED. See BREAKDOWN.md for more information.__
 
 Input |
----|---
-h | h
+---|
+h |
 8 |
 1 1000 |
 (0)\*1(0)\* |
