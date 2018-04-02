@@ -19,7 +19,7 @@ We say that an expression E matches a string of digits D if and only if at least
 
 - E = D.
 - E = E1E2 and there exist D1 and D2 such that D = D1D2 and Ei matches Di.
-- E = (E1| E2|...| EN) and at least one of the Ei matches D.
+- E = (E1| E2|...| EN) and one of the Ei matches D.
 - E = (E1)* and there exist D1, D2, ..., DN for some non-negative integer N such that D = D1D2...DN and E1 matches each of the Di. In particular, note that (E1)* matches the empty string.
 
 ``` text
@@ -29,6 +29,8 @@ For example, the expression ((1|2))*3 matches 3, 13, 123, and 2221123, among oth
 Given a valid regular expression R, for how many integers between A and B, inclusive, does R match the integer's base 10 representation (with no leading zeroes)?
 
 ### Input
+
+__INPUT WAS MODIFIED. See BREAKDOWN.md for more information.__
 
 The first line of the input gives the number of test cases, T. T test cases follow; each consists of two lines. The first line has two positive integers A and B: the inclusive limits of the integer range we are interested in. The second has a string R consisting only of characters in the set 0123456789()|*, which is guaranteed to be a valid regular expression as described in the statement above.
 
@@ -43,7 +45,10 @@ For each test case, output one line containing Case #x: y, where x is the test c
 - 1 ≤ length of R ≤ 30.
 
 ### Sample
-Input | Output
+
+__INPUT WAS MODIFIED. See BREAKDOWN.md for more information.__
+
+Input |
 ---|---
 h | h
 8 |
@@ -66,4 +71,4 @@ h | h
 
 ## Breakdown
 
-BREAKDOWN at breakdown.md
+BREAKDOWN at [BREAKDOWN.md](BREAKDOWN.md)
