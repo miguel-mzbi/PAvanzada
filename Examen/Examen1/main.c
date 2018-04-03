@@ -1,4 +1,7 @@
 /* 
+MIGUEL ANGEL MONTOYA ZARAGOZA
+A01226045
+
 Descripción del problema
 
 Funciones:
