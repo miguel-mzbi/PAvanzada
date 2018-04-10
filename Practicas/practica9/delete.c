@@ -13,7 +13,6 @@ int main(int argc, char **argv) {
     char *dbName = "student.dat";
     Student myStudent;
     char *searchName = argv[1];
-    char *updateName = argv[2];
 
     FILE *data = fopen(dbName, "r+b");
     while(1) {
@@ -21,14 +20,9 @@ int main(int argc, char **argv) {
         fread(&myStudent, sizeof(Student), 1, data);
         if(myStudent.free == 1) continue;
         if(!strcmp(myStudent.firstName, searchName)) {
-            strcpy(myStudent.firstName, updateName);
+            myStudent.free = 1;
             fseek(data, -1*sizeof(Student), SEEK_CUR);
             fwrite(&myStudent, sizeof(Student), 1, data);
-            printf("Student info:\n");
-            printf("First name: %s\n", myStudent.firstName);
-            printf("Last name: %s\n", myStudent.lastName);
-            printf("ID: %i\n", myStudent.id);
-            printf("Semester: %s\n", myStudent.semester);
         }
     }
     fclose(data);

@@ -6,6 +6,7 @@ struct Student {
     char lastName[20];
     short id;
     char semester[3];
+    char free;
 } typedef Student;
 
 int main(int argc, char **argv) {
@@ -17,6 +18,7 @@ int main(int argc, char **argv) {
     while(1) {
         if(feof(data)) break;
         fread(&myStudent, sizeof(Student), 1, data);
+        if(myStudent.free == 1) continue;
         if(!strcmp(myStudent.firstName, searchName)) {
             printf("Student info:\n");
             printf("First name: %s\n", myStudent.firstName);
